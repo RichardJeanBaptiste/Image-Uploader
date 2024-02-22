@@ -1,13 +1,13 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Nav from "./components/Nav";
 import Uploader from "./components/Uploader";
+import Background from "./components/Background";
 import { LightProvider } from "./components/LightContext";
 
 export default function Home() {
   return (
     <>
       <LightProvider>
+        <Background/>
         <Nav/>
         <Uploader/>
       </LightProvider>

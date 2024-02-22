@@ -16,8 +16,11 @@
 .dark_mode_icon{
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   right: 50px; 
+  transform: translateY(-50%);
+  background-color: #FFFFFF;
+  width: 3%;
+  border-radius: 8px;
 }
 
 .light_mode_icon{
@@ -25,13 +28,26 @@
   top: 50%;
   transform: translateY(-50%);
   right: 50px; 
-  background-color: #212936;
+  background-color: #FFFFFF;
+  width: 3%;
+  border-radius: 8px;
 }
 
 .uploader_root {
   width: 42vw;
   height: 68vh;
   background-color: #F9FAFB;
+  border-radius: 20px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.uploader_root_dark {
+  width: 42vw;
+  height: 68vh;
+  background-color: #4D5562;
   border-radius: 20px;
   position: absolute;
   top: 60%;
