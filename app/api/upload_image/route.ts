@@ -6,14 +6,17 @@ export async function POST(request: Request){
     try {
         let mongo_uri:string | undefined = process.env.NEXT_PUBLIC_MONGO_URI;
 
-        console.log(mongo_uri);
+        let data = await request.json();
+        
+        console.log(data);
+       
 
         return NextResponse.json({msg: "returned Image ID"}, {status: 200})
 
     } catch (error) {
         
         // console.log(process.env.MONGO_URI);
-        // console.log(error);
+        console.log(error);
         
         return NextResponse.json({msg: "Server Error :("}, {status: 500});
     }

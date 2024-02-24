@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import { convertFileToBase64 } from '../commons';
 
 
 
@@ -42,26 +43,26 @@ export default function Uploader() {
         }
     };
 
+  
     const handleUpload = async () => {
 
-        if (!selectedFile) {
-            console.log("No file selected");
-            return;
-        }
+        //console.log(selectedFile);
+        // if (!selectedFile) {
+        //     console.log("No file selected");
+        //     return;
+        // }
 
         if (selectedFile) {
-          // Handle upload logic here
-          const formData = new FormData();
 
-          formData.append('id', uuidv4());
-          formData.append('file', selectedFile);
-
-          const response = await axios.post('/api/upload', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          });
-          console.log("File uploaded successfully:", response.data);
+            let convertedFile =  await convertFileToBase64(selectedFile);
+            
+            axios.post('/api/upload_image',{
+                img_file: JSON.stringify(convertedFile)
+            }).then((res) => {
+                console.log(res.data.msg);
+            }).catch((err) => {
+                console.log(err);
+            })
         }
     };
 
