@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState,useContext, useRef} from 'react';
+import React, {useState,useContext, useRef, useEffect} from 'react';
 import { LightContext } from './LightContext';
 import Image from "next/image";
 import styles from "../page.module.css";
@@ -20,17 +20,17 @@ export default function Uploader() {
     const [selectedFile, SetSelectedFile] = useState<File | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const handleFileChange = (e: any) => {
+    const handleFileChange = async (e: any) => {
         const file = e.target.files[0];
         SetSelectedFile(file);
-        handleUpload();
+        handleUpload(file);
     }
 
     const handleDrop = (e: any) => {
         e.preventDefault();
         const file = e.dataTransfer.files[0];
         SetSelectedFile(file);
-        handleUpload();
+        handleUpload(file);
     };
 
     const handleDragOver = (e: any) => {
@@ -44,35 +44,34 @@ export default function Uploader() {
     };
 
   
-    const handleUpload = async () => {
+    const handleUpload = async (file: any) => {
 
-        //console.log(selectedFile);
-        // if (!selectedFile) {
-        //     console.log("No file selected");
-        //     return;
-        // }
+        
+        if (!file) {
+            console.log("No file selected");
+            return;
+        }
 
-        if (selectedFile) {
-
-            let convertedFile =  await convertFileToBase64(selectedFile);
+        if (file) {
+            let convertedFile =  await convertFileToBase64(file);
             
             axios.post('/api/upload_image',{
                 img_file: JSON.stringify(convertedFile)
             }).then((res) => {
-                console.log(res.data.msg);
+                console.log(res.data.image_id);
             }).catch((err) => {
                 console.log(err);
             })
         }
     };
 
-    const FileName = () => {
-        if(selectedFile === null){
-            return ""
-        } else {
-            return selectedFile.name
-        }
-    }
+    // const FileName = () => {
+    //     if(selectedFile === null){
+    //         return ""
+    //     } else {
+    //         return selectedFile.name
+    //     }
+    // }
 
     if(lightmode === 'light'){
         return (
@@ -86,13 +85,10 @@ export default function Uploader() {
                         <input
                             type="file"
                             accept=".jpg,.jpeg,.png"
-                            onChange={handleFileChange}
                             style={{ display: 'none'}}
                             ref={fileInputRef}
+                            onChange={handleFileChange}
                         />
-                        <p>
-                            <FileName/>
-                        </p>
                     </div>
                     <div className={styles.img_container}>
                         <Image
