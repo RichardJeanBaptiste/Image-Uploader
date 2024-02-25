@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState,useContext, useRef, useEffect} from 'react';
+import React, {useState,useContext, useRef} from 'react';
 import { LightContext } from './LightContext';
 import Image from "next/image";
 import styles from "../page.module.css";
@@ -19,6 +19,7 @@ export default function Uploader() {
 
     const [selectedFile, SetSelectedFile] = useState<File | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const [loading, SetLoading] = useState(false);
 
     const handleFileChange = async (e: any) => {
         const file = e.target.files[0];
@@ -45,7 +46,6 @@ export default function Uploader() {
 
   
     const handleUpload = async (file: any) => {
-
         
         if (!file) {
             console.log("No file selected");
@@ -74,37 +74,54 @@ export default function Uploader() {
     // }
 
     if(lightmode === 'light'){
-        return (
-            <div className={styles.uploader_root}>
-                <div className={styles.inner_root}>
-                    <div 
-                        style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0}}
-                        onDrop={handleDrop}
-                        onDragOver={handleDragOver}
-                    >
-                        <input
-                            type="file"
-                            accept=".jpg,.jpeg,.png"
-                            style={{ display: 'none'}}
-                            ref={fileInputRef}
-                            onChange={handleFileChange}
-                        />
-                    </div>
-                    <div className={styles.img_container}>
-                        <Image
-                            src={arrowIcon}
-                            width={70}
-                            height={50}
-                            alt="Upload Icon Small"
-                        />
-                    </div>
-                    <div className={styles.upload_selector}>
-                        <p style={{ fontWeight: 'bold', textAlign: 'center', fontSize: '17px'}}>Drag & drop a file or <span style={{ color: "#3662E3", cursor: 'pointer'}} onClick={handleClickBrowse}>browse files</span></p>
-                        <p style={{ textAlign: 'center', fontSize: '14px'}}>JPG, PNG or GIF - Max file size 2MB</p>
+
+        if(!loading){
+            return (
+                <div className={styles.uploader_root}>
+                    <div className={styles.inner_root}>
+                        <div 
+                            style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0}}
+                            onDrop={handleDrop}
+                            onDragOver={handleDragOver}
+                        >
+                            <input
+                                type="file"
+                                accept=".jpg,.jpeg,.png"
+                                style={{ display: 'none'}}
+                                ref={fileInputRef}
+                                onChange={handleFileChange}
+                            />
+                            <p onClick={() => SetLoading(true)}>abcdef</p>
+                        </div>
+                        <div className={styles.img_container}>
+                            <Image
+                                src={arrowIcon}
+                                width={70}
+                                height={50}
+                                alt="Upload Icon Small"
+                            />
+                        </div>
+                        <div className={styles.upload_selector}>
+                            <p style={{ fontWeight: 'bold', textAlign: 'center', fontSize: '17px'}}>Drag & drop a file or <span style={{ color: "#3662E3", cursor: 'pointer'}} onClick={handleClickBrowse}>browse files</span></p>
+                            <p style={{ textAlign: 'center', fontSize: '14px'}}>JPG, PNG or GIF - Max file size 2MB</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className={styles.load_container}>
+                    <div className={styles.loader}>
+                        <p style={{ textAlign: 'center', marginTop: '7%'}}><span style={{ fontWeight: 'bold'}}>Uploading</span>, please wait.....</p>
+                        <Box className={styles.loader1}>
+                            <LinearProgress sx={{ borderRadius: '20px'}}/>
+                        </Box>
+                    </div>
+                </div>
+                
+            )
+        }
+        
     } else {
         return (
             <div className={styles.uploader_root_dark}>
