@@ -56,7 +56,7 @@ export default function Uploader() {
             let convertedFile =  await convertFileToBase64(file);
             
             axios.post('/api/upload_image',{
-                img_file: JSON.stringify(convertedFile)
+                img_file: convertedFile
             }).then((res) => {
                 console.log(res.data.image_id);
             }).catch((err) => {

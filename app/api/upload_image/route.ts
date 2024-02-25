@@ -17,7 +17,6 @@ export async function POST(request: Request){
             img_file: data.img_file,
         })
 
-        console.log(newImgFile);
         await newImgFile.save();
         return NextResponse.json({image_id: newImgFile._id}, {status: 200})
 
