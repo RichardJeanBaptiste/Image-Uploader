@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useEffect,useContext} from 'react';
+import React, {useContext} from 'react';
 import { LightContext } from './LightContext';
 import styles from '../page.module.css';
 import Image from 'next/image';
@@ -9,10 +9,12 @@ import uploadWhite from '../../public/white-logo.svg';
 import IconButton from '@mui/material/IconButton';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import { useRouter } from 'next/navigation';
 
 export default function Nav() {
 
     const {lightmode, SetLightMode} = useContext(LightContext);
+    const router = useRouter();
 
     const changeLightMode = () => {
         if(lightmode === "light"){
@@ -42,9 +44,9 @@ export default function Nav() {
                     width={200}
                     height={100}
                     alt="Image Upload"
-                    style={{ marginLeft: '4%'}}
+                    style={{ marginLeft: '4%', cursor: 'pointer'}}
+                    onClick={() => router.push('/')}
                 />
-                
                 
                 <IconButton aria-label='Light Mode' className={styles.dark_mode_icon} onClick={changeLightMode}>
                     <ThemeIcon/>

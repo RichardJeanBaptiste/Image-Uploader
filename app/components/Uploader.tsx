@@ -8,18 +8,20 @@ import arrowIcon from "../../public/logo-small.svg";
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 import { convertFileToBase64 } from '../commons';
+import { useRouter } from 'next/navigation';
 
 
 
 export default function Uploader() {
 
+    const router = useRouter();
     const {lightmode, SetLightMode} = useContext(LightContext);
 
     const [selectedFile, SetSelectedFile] = useState<File | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [loading, SetLoading] = useState(false);
+   
 
     const handleFileChange = async (e: any) => {
         const file = e.target.files[0];
@@ -53,13 +55,22 @@ export default function Uploader() {
         }
 
         if (file) {
+
+            SetLoading(true);
+
             let convertedFile =  await convertFileToBase64(file);
             
             axios.post('/api/upload_image',{
                 img_file: convertedFile
             }).then((res) => {
                 console.log(res.data.image_id);
+                setTimeout(() =>{
+                    router.push(`/share/${res.data.image_id}`)
+                    SetLoading(false);
+                },2000);
             }).catch((err) => {
+                alert("Something went wrong:(. Try again");
+                SetLoading(false);
                 console.log(err);
             })
         }
@@ -91,7 +102,6 @@ export default function Uploader() {
                                 ref={fileInputRef}
                                 onChange={handleFileChange}
                             />
-                            <p onClick={() => SetLoading(true)}>abcdef</p>
                         </div>
                         <div className={styles.img_container}>
                             <Image
