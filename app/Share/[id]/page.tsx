@@ -7,6 +7,9 @@ import styles from '@/app/page.module.css';
 import { LightProvider } from "../../components/LightContext";
 import axios from 'axios';
 import { base64ToBlob } from '@/app/commons';
+import Button from '@mui/material/Button';
+import LinkIcon from '@mui/icons-material/Link';
+import DownloadIcon from '@mui/icons-material/Download';
 import Image from "next/image";
 
 export default function ShareImg({params}: any){
@@ -35,7 +38,12 @@ export default function ShareImg({params}: any){
     const BlobImg = () => {
         if(imgBlob != null){
             return(
-                <img src={URL.createObjectURL(imgBlob)} alt="Image" />
+                <Image
+                    src={URL.createObjectURL(imgBlob)}
+                    fill={true}
+                    priority={true}
+                    alt="Share Image"
+                />
             )
         } else {
             return (
@@ -50,8 +58,26 @@ export default function ShareImg({params}: any){
             <LightProvider>
                 <Background/>
                 <Nav/>
-                <p>Share IMage</p>
-                <BlobImg/>
+                <div style={{position:'absolute', top: '58%', left: '50%', transform:'translate(-50%,-50%)', width: '60%', height: '60%'}}>
+                    <div style={{ width: '100%', height: '100%', position: 'relative'}}>
+                        <div style={{ width: '100%', height: '80%'}}>
+                            <div style={{ width: '95%', height: '93%', position: 'relative', top: '3.5%', left: '2.5%'}}>
+                                <BlobImg/>
+                            </div>  
+                        </div>
+                        
+                        <div>
+                            <Button variant="contained" startIcon={<LinkIcon/>}>
+                                Share
+                            </Button>
+                            <Button variant="contained" startIcon={<DownloadIcon/>}>
+                                Download
+                            </Button>
+                        </div>
+
+                    </div>  
+                </div>
+                
             </LightProvider>
             
         </>
