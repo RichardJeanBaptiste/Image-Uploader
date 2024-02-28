@@ -36,30 +36,6 @@ export default function Nav() {
         }
     }
 
-    const icStyle= () => {
-        if(lightmode === "light"){
-            return {
-                position: 'absolute',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                right: '50px',
-                backgroundColor: '#FFFFFF',
-                width: '4.5%',
-                borderRadius: '8px',
-            }
-        } else {
-            return {
-                position: 'absolute',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                right: '50px',
-                backgroundColor: '#FFFFFF',
-                width: '4.5%',
-                borderRadius: '8px',
-            }
-        }
-    }
-
     if(lightmode == "light"){
         return(
             <div className={styles.nav_root}>
@@ -71,11 +47,8 @@ export default function Nav() {
                     style={{ marginLeft: '4%', cursor: 'pointer'}}
                     onClick={() => router.push('/')}
                 />
-
-
                 
-                
-                <IconButton aria-label='Light Mode' sx={icStyle} onClick={changeLightMode}>
+                <IconButton aria-label='Light Mode' className={styles.dark_mode_icon} onClick={changeLightMode}>
                     <ThemeIcon/>
                 </IconButton> 
             </div>
