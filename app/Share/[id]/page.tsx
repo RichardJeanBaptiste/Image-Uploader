@@ -15,15 +15,17 @@ import styles from '../page.module.css';
 export default function ShareImg({params}: any){
 
     const [imgBlob, SetImgBlob] = useState<Blob | null>(null);
+    const [hrefString, SetHrefString] = useState("");
 
     useEffect(() => {
-        console.log(params.id);
         axios.get('/api/get_image', {
             params: {
               id: params.id
             }
           })
           .then(function (response) {
+
+            SetHrefString(URL.createObjectURL(base64ToBlob(response.data.img_file, 'image/jpeg')));
             SetImgBlob(base64ToBlob(response.data.img_file, 'image/jpeg'));
           })
           .catch(function (error) {
@@ -33,6 +35,11 @@ export default function ShareImg({params}: any){
             // always executed
           }); 
     },[]);
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(`localhost:3000/share/${params.id}`);
+        alert("Copied To Clipboard");
+    }
 
 
     const BlobImg = () => {
@@ -70,12 +77,12 @@ export default function ShareImg({params}: any){
                         <div className={styles.button_container}>
 
                             <div style={{paddingRight: '2%'}}>
-                                <Button variant="contained" startIcon={<LinkIcon/>} >
+                                <Button variant="contained" startIcon={<LinkIcon/>} onClick={copyToClipboard}>
                                     Share
                                 </Button>
                             </div>
                            
-                            <Button variant="contained" startIcon={<DownloadIcon/>}>
+                            <Button variant="contained" startIcon={<DownloadIcon/>} href={hrefString}>
                                 Download
                             </Button>
                         </div>
