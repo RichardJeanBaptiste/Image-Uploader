@@ -11,6 +11,13 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { useRouter } from 'next/navigation';
 
+/**
+ * <IconButton aria-label='Light Mode' className={styles.dark_mode_icon} onClick={changeLightMode}>
+                    <ThemeIcon/>
+                </IconButton> 
+ * 
+ */
+
 export default function Nav() {
 
     const {lightmode, SetLightMode} = useContext(LightContext);
@@ -48,9 +55,7 @@ export default function Nav() {
                     onClick={() => router.push('/')}
                 />
                 
-                <IconButton aria-label='Light Mode' className={styles.dark_mode_icon} onClick={changeLightMode}>
-                    <ThemeIcon/>
-                </IconButton> 
+                <button className={styles.dark_mode_icon}onClick={changeLightMode}>lightmode</button>
             </div>
         )
     } else {
