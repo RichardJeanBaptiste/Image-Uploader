@@ -1,6 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import mongoose from "mongoose";
 import { imgfile } from "../Schemas";
+import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 
 
 export async function GET(request: NextRequest){
@@ -22,6 +23,9 @@ export async function GET(request: NextRequest){
   
     } catch (error) {
   
+        if (isDynamicServerError(error)) {
+            throw error;
+        }
         console.log(error);
     }
 }
