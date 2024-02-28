@@ -39,7 +39,7 @@ export default function ShareImg({params}: any){
     },[]);
 
     const copyToClipboard = () => {
-        navigator.clipboard.writeText(`localhost:3000/share/${params.id}`);
+        navigator.clipboard.writeText(`https://image-uploader-three-delta.vercel.app/share/${params.id}`);
         alert("Copied To Clipboard");
     }
 
