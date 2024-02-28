@@ -3,7 +3,6 @@
 import React, {useState, useEffect} from 'react';
 import Nav from "@/app/components/Nav"
 import Background from "@/app/components/Background";
-import styles from '@/app/page.module.css';
 import { LightProvider } from "../../components/LightContext";
 import axios from 'axios';
 import { base64ToBlob } from '@/app/commons';
@@ -11,6 +10,7 @@ import Button from '@mui/material/Button';
 import LinkIcon from '@mui/icons-material/Link';
 import DownloadIcon from '@mui/icons-material/Download';
 import Image from "next/image";
+import styles from '../page.module.css';
 
 export default function ShareImg({params}: any){
 
@@ -40,6 +40,7 @@ export default function ShareImg({params}: any){
             return(
                 <Image
                     src={URL.createObjectURL(imgBlob)}
+                    style={{borderRadius: '20px'}}
                     fill={true}
                     priority={true}
                     alt="Share Image"
@@ -58,18 +59,22 @@ export default function ShareImg({params}: any){
             <LightProvider>
                 <Background/>
                 <Nav/>
-                <div style={{position:'absolute', top: '58%', left: '50%', transform:'translate(-50%,-50%)', width: '60%', height: '60%'}}>
-                    <div style={{ width: '100%', height: '100%', position: 'relative'}}>
-                        <div style={{ width: '100%', height: '80%'}}>
-                            <div style={{ width: '95%', height: '93%', position: 'relative', top: '3.5%', left: '2.5%'}}>
+                <div className={styles.share_root}>
+                    <div className={styles.share_root2}>
+                        <div className={styles.img_background}>
+                            <div className={styles.img_style}>
                                 <BlobImg/>
                             </div>  
                         </div>
                         
-                        <div>
-                            <Button variant="contained" startIcon={<LinkIcon/>}>
-                                Share
-                            </Button>
+                        <div className={styles.button_container}>
+
+                            <div style={{paddingRight: '2%'}}>
+                                <Button variant="contained" startIcon={<LinkIcon/>} >
+                                    Share
+                                </Button>
+                            </div>
+                           
                             <Button variant="contained" startIcon={<DownloadIcon/>}>
                                 Download
                             </Button>

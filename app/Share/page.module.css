@@ -1,0 +1,42 @@
+.share_root{
+    position:absolute;
+    top: 58%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width: 60%; 
+    height: 60%;
+}
+
+.share_root2{
+    width: 100%; 
+    height: 100%;
+    position: relative;
+}
+
+.img_background{
+    position: absolute;
+    top: 4%;
+    left: 9.5%;
+    width: 81%;
+    height: 80%;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.img_style{
+    width: 96%;
+    height: 95%;
+    position: relative;
+    top: 2.5%;
+    left: 2%;
+    border-radius: 20px;
+}
+
+.button_container{
+    position: absolute;
+    top: 90%;
+    left: 33%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
