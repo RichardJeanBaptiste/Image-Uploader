@@ -10,8 +10,7 @@ export default function Home() {
         <Background/>
         <Nav/>
         <Uploader/>
-      </LightProvider>
-      
+      </LightProvider>  
     </>
   );
 }
