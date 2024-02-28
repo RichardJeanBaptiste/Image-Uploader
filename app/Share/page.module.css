@@ -15,11 +15,23 @@
 
 .img_background{
     position: absolute;
-    top: 4%;
-    left: 9.5%;
-    width: 81%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
     height: 80%;
     background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.dark_img_background{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 80%;
+    background-color: #212936;
     border-radius: 20px;
 }
 
@@ -35,8 +47,81 @@
 .button_container{
     position: absolute;
     top: 90%;
-    left: 33%;
-    width: 100%;
+    left: 64%;
+    transform:translate(-50%,-50%);
+    width: 46%;
     display: flex;
     flex-direction: row;
+}
+
+@media only screen and (max-width: 1440px) {
+  
+
+    .button_container{
+        position: absolute;
+        top: 90%;
+        left: 60%;
+        transform:translate(-50%,-50%);
+        width: 46%;
+        display: flex;
+        flex-direction: row;
+    }
+  }
+  
+  @media only screen and (max-width:  1024px){
+
+    .img_background{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+    }
+    
+    .dark_img_background{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        background-color: #212936;
+        border-radius: 20px;
+    }
+    .button_container{
+        position: absolute;
+        top: 90%;
+        left: 54%;
+        transform:translate(-50%,-50%);
+        width: 46%;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .share_root{
+        position:absolute;
+        top: 58%;
+        left: 50%;
+        transform:translate(-50%,-50%);
+        width: 80%; 
+        height: 60%;
+    }
+    
+}
+  
+@media only screen and (max-width: 425px) {
+    .share_root{
+        position:absolute;
+        top: 58%;
+        left: 49.5%;
+        transform:translate(-50%,-50%);
+        width: 117%; 
+        height: 51%;
+    }
+
 }

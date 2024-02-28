@@ -114,3 +114,153 @@
   transform: translate(-50%, -50%);
   width: 70%;
 }
+
+@media only screen and (max-width: 1440px) {
+  
+
+  .uploader_root{
+    width: 49vw;
+    height: 66vh;
+    background-color: #F9FAFB;
+    border-radius: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .uploader_root_dark {
+    width: 49vw;
+    height: 66vh;
+    background-color: #4D5562;
+    border-radius: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media only screen and (max-width:  1024px){
+  .light_mode_icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px; 
+    background-color: #FFFFFF;
+    width: 4.5%;
+    border-radius: 8px;
+  }
+
+  .dark_mode_icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px; 
+    background-color: #FFFFFF;
+    width: 4.5%;
+    border-radius: 8px;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .uploader_root{
+    width: 80vw;
+    height: 60vh;
+    background-color: #F9FAFB;
+    border-radius: 20px;
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .uploader_root_dark {
+    width: 66vw;
+    height: 66vh;
+    background-color: #4D5562;
+    border-radius: 20px;
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .light_mode_icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px; 
+    background-color: #FFFFFF;
+    width: 6%;
+    border-radius: 8px;
+  }
+
+  .dark_mode_icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px; 
+    background-color: #FFFFFF;
+    width: 6%;
+    border-radius: 8px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .uploader_root{
+    width: 92vw;
+    height: 74vh;
+    background-color: #F9FAFB;
+    border-radius: 20px;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .uploader_root_dark {
+    width: 92vw;
+    height: 74vh;
+    background-color: #4D5562;
+    border-radius: 20px;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .inner_root{
+    width: 94%;
+    height: 97%;
+    border-style: dashed;
+    border-color: lightgrey;
+    border-radius: 20px;
+    border-width: 2px;
+    margin-left: 3%;
+    margin-top: 2%;
+    position: relative;
+  }
+
+  .light_mode_icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px; 
+    background-color: #FFFFFF;
+    width: 12%;
+    border-radius: 8px;
+  }
+
+  .dark_mode_icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px; 
+    background-color: #FFFFFF;
+    width: 12%;
+    border-radius: 8px;
+  }
+  
+}

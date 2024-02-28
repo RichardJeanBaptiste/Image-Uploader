@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Nav from "@/app/components/Nav"
 import Background from "@/app/components/Background";
 import { LightProvider } from "../../components/LightContext";
@@ -11,9 +11,11 @@ import LinkIcon from '@mui/icons-material/Link';
 import DownloadIcon from '@mui/icons-material/Download';
 import Image from "next/image";
 import styles from '../page.module.css';
+import { LightContext } from '../../components/LightContext';
 
 export default function ShareImg({params}: any){
 
+    const {lightmode, SetLightMode} = useContext(LightContext);
     const [imgBlob, SetImgBlob] = useState<Blob | null>(null);
     const [hrefString, SetHrefString] = useState("");
 
@@ -61,6 +63,28 @@ export default function ShareImg({params}: any){
         }
     }
 
+    const ImgBackgroundStyle = () => {
+        if(lightmode === "light"){
+            return (
+                <div className={styles.img_background}>
+                    <div className={styles.img_style}>
+                        <BlobImg/>
+                    </div>  
+                </div>
+            )
+            
+        } else {
+            
+            return (
+                <div className={styles.dark_img_background}>
+                    <div className={styles.img_style}>
+                        <BlobImg/>
+                    </div>  
+                </div>
+            )
+        }
+    }
+
     return (
         <>
             <LightProvider>
@@ -68,11 +92,7 @@ export default function ShareImg({params}: any){
                 <Nav/>
                 <div className={styles.share_root}>
                     <div className={styles.share_root2}>
-                        <div className={styles.img_background}>
-                            <div className={styles.img_style}>
-                                <BlobImg/>
-                            </div>  
-                        </div>
+                        <ImgBackgroundStyle/>
                         
                         <div className={styles.button_container}>
 
