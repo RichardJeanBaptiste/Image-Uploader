@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import mongoose from "mongoose";
 import { imgfile } from "../Schemas";
 
 
-export async function GET(request: Request){
+export async function GET(request: NextRequest){
     try {
         let mongo_uri:string | undefined = process.env.NEXT_PUBLIC_MONGO_URI;
 
@@ -13,6 +13,11 @@ export async function GET(request: Request){
         
         const url = new URL(request.url);
         const objectId = url.searchParams.get("id");
+
+
+        if (!objectId) {
+            return NextResponse.error();
+        }
 
 
         let query = await imgfile.findOne({_id: objectId});
