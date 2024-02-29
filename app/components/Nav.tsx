@@ -61,7 +61,8 @@ export default function Nav() {
                     width={200}
                     height={100}
                     alt="Image Upload"
-                    style={{ marginLeft: '4%'}}
+                    style={{ marginLeft: '4%', cursor: 'pointer'}}
+                    onClick={() => router.push('/')}
                 />
                 
                 
