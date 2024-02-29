@@ -19,7 +19,8 @@
   right: 50px; 
   transform: translateY(-50%);
   background-color: #FFFFFF;
-  width: 3%;
+  width: 4%;
+  height: 40px;
   border-radius: 8px;
 }
 
@@ -28,8 +29,10 @@
   top: 50%;
   transform: translateY(-50%);
   right: 50px; 
-  background-color: #FFFFFF;
-  width: 3%;
+  background-color: #4D5562; 
+  border-color: #4D5562; 
+  width: 4%;
+  height: 40px;
   border-radius: 8px;
 }
 
@@ -147,7 +150,8 @@
     top: 50%;
     transform: translateY(-50%);
     right: 50px; 
-    background-color: #FFFFFF;
+    background-color: #4D5562;
+    border-color: #4D5562;
     width: 4.5%;
     border-radius: 8px;
   }
@@ -192,8 +196,10 @@
     top: 50%;
     transform: translateY(-50%);
     right: 50px; 
-    background-color: #FFFFFF;
+    background-color: #4D5562;
+    border-color: #4D5562;
     width: 6%;
+    height: 40px;
     border-radius: 8px;
   }
 
@@ -204,9 +210,11 @@
     right: 50px; 
     background-color: #FFFFFF;
     width: 6%;
+    height: 40px; 
     border-radius: 8px;
   }
 }
+  
 
 @media only screen and (max-width: 425px) {
   .uploader_root{
@@ -248,7 +256,8 @@
     top: 50%;
     transform: translateY(-50%);
     right: 12px; 
-    background-color: #FFFFFF;
+    background-color: #4D5562;
+    border-color: #4D5562;
     width: 12%;
     border-radius: 8px;
   }

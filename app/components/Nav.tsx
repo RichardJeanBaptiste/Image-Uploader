@@ -6,17 +6,10 @@ import styles from '../page.module.css';
 import Image from 'next/image';
 import uploadIcon from '../../public/logo.svg';
 import uploadWhite from '../../public/white-logo.svg';
-import IconButton from '@mui/material/IconButton';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { useRouter } from 'next/navigation';
 
-/**
- * <IconButton aria-label='Light Mode' className={styles.dark_mode_icon} onClick={changeLightMode}>
-                    <ThemeIcon/>
-                </IconButton> 
- * 
- */
 
 export default function Nav() {
 
@@ -55,7 +48,9 @@ export default function Nav() {
                     onClick={() => router.push('/')}
                 />
                 
-                <button className={styles.dark_mode_icon}onClick={changeLightMode}>lightmode</button>
+                <button className={styles.dark_mode_icon} onClick={changeLightMode}>
+                    <DarkModeIcon sx={{ color: "#4D5562"}}/>
+                </button>
             </div>
         )
     } else {
@@ -70,9 +65,10 @@ export default function Nav() {
                 />
                 
                 
-                <IconButton aria-label='Light Mode' className={styles.light_mode_icon} onClick={changeLightMode}>
-                    <ThemeIcon/>
-                </IconButton> 
+                
+                <button className={styles.light_mode_icon} onClick={changeLightMode}>
+                    <LightModeIcon sx={{ color: "#E5E7EB", backgroundColor:"#4D5562"}}/>
+                </button>
             </div>
         )
     }
