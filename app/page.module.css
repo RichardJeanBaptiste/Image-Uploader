@@ -1,14 +1,14 @@
 .nav_root{
   width: 100%;
   height: 15vh;
-  border-bottom: 2px solid grey;
+  border-bottom: .5px solid #F9FAFBCC;
   position: relative;
 }
 
 .nav_root_dark{
   width: 100%;
   height: 15vh;
-  border-bottom: 2px solid grey;
+  border-bottom: .5px solid #F9FAFBCC;
   position: relative;
   background-color: #121826;
 }
