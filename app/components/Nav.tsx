@@ -39,31 +39,33 @@ export default function Nav() {
     if(lightmode == "light"){
         return(
             <div className={styles.nav_root}>
-                <Image
-                    src={uploadIcon}
-                    width={200}
-                    height={100}
-                    alt="Image Upload"
-                    style={{ marginLeft: '4%', cursor: 'pointer'}}
-                    onClick={() => router.push('/')}
-                />
+                <div className={styles.upload_icon}>
+                    <Image
+                        fill    
+                        src={uploadIcon}
+                        alt="Image Upload"
+                        onClick={() => router.push('/')}
+                    />
+                </div>
+                
                 
                 <button className={styles.dark_mode_icon} onClick={changeLightMode}>
-                    <DarkModeIcon sx={{ color: "#4D5562"}}/>
+                    <DarkModeIcon sx={{ color: "rgba(77, 85, 98, 0.8)"}}/>
                 </button>
             </div>
         )
     } else {
         return(
             <div className={styles.nav_root_dark}>
-                <Image
-                    src={uploadWhite}
-                    width={200}
-                    height={100}
-                    alt="Image Upload"
-                    style={{ marginLeft: '4%', cursor: 'pointer'}}
-                    onClick={() => router.push('/')}
-                />
+                <div className={styles.upload_icon}>
+                    <Image
+                        fill
+                        src={uploadWhite}
+                        alt="Image Upload"
+                        onClick={() => router.push('/')}
+                    />
+                </div>
+                
                 
                 
                 

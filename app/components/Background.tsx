@@ -10,11 +10,11 @@ export default function Background(){
 
     if(lightmode === 'light'){
         return(
-            <div style={{position: 'absolute', top: 0, left: 0,width: '110vw', height: '100vh', overflowX: 'hidden', overflowY: 'hidden', zIndex: -1}}></div>
+            <div style={{position: 'absolute', top: 0, left: 0,width: '100vw', height: '100vh', overflowX: 'hidden', overflowY: 'hidden', backgroundColor:"#F9FAFBCC", zIndex: -1}}></div>
         )
     } else {
         return(
-            <div style={{position: 'absolute', top: 0, left: 0,width: '110vw', height: '100vh', overflowX: 'hidden', overflowY: 'hidden', backgroundColor: '#121826', zIndex: -1}}></div>
+            <div style={{position: 'absolute', top: 0, left: 0,width: '100vw', height: '100vh', overflowX: 'hidden', overflowY: 'hidden', backgroundColor: '#121826', zIndex: -1}}></div>
         )
     }
    
