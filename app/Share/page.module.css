@@ -1,10 +1,10 @@
 .share_root{
     position:absolute;
-    top: 58%;
+    top: 63%;
     left: 50%;
     transform:translate(-50%,-50%);
-    width: 60%; 
-    height: 60%;
+    width: 55%; 
+    height: 66%;
 }
 
 .share_root2{
@@ -18,8 +18,8 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 80%;
+    width: 80%;
+    height: 88%;
     background-color: #FFFFFF;
     border-radius: 20px;
 }
@@ -46,8 +46,8 @@
 
 .button_container{
     position: absolute;
-    top: 90%;
-    left: 64%;
+    top: 93%;
+    left: 60%;
     transform:translate(-50%,-50%);
     width: 46%;
     display: flex;
